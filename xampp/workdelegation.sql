@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 27, 2026 at 09:22 AM
+-- Generation Time: Jan 27, 2026 at 11:55 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -89,6 +89,50 @@ INSERT INTO `tbl_child` (`id`, `emp_id`, `job_role`, `qualification`, `skills`, 
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `tbl_fw_info`
+--
+
+CREATE TABLE `tbl_fw_info` (
+  `id` int(11) NOT NULL,
+  `xpr` varchar(5) NOT NULL,
+  `mb_ble` varchar(5) NOT NULL,
+  `flex_max` varchar(5) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `tbl_fw_info`
+--
+
+INSERT INTO `tbl_fw_info` (`id`, `xpr`, `mb_ble`, `flex_max`) VALUES
+(1, '4.66', '5.38', '1.38'),
+(3, '1.66', '1.38', '1.38');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_module_info`
+--
+
+CREATE TABLE `tbl_module_info` (
+  `id` int(11) NOT NULL,
+  `opti_server` varchar(10) NOT NULL,
+  `cada` varchar(10) NOT NULL,
+  `amp_android` varchar(10) NOT NULL,
+  `amp_ios` varchar(10) NOT NULL,
+  `msam` varchar(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `tbl_module_info`
+--
+
+INSERT INTO `tbl_module_info` (`id`, `opti_server`, `cada`, `amp_android`, `amp_ios`, `msam`) VALUES
+(1, '26.01.03', '26.01.01', '25.12.01', '24.10.01', '26.01.01'),
+(3, '25.01.03', '25.01.01', '25.12.01', '25.10.01', '25.01.01');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `tbl_parent`
 --
 
@@ -163,7 +207,7 @@ CREATE TABLE `tbl_prod_idx` (
 INSERT INTO `tbl_prod_idx` (`id`, `emp_id`, `prod_idx`) VALUES
 (1, 'EMBED0001', '1'),
 (2, 'EMBED0002', '1'),
-(3, 'EMBED0003', '4'),
+(3, 'EMBED0003', '1'),
 (4, 'EMBED0004', '1'),
 (5, 'EMBED0005', '1'),
 (6, 'EMBED0006', '1');
@@ -250,6 +294,18 @@ ALTER TABLE `tbl_child`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `tbl_fw_info`
+--
+ALTER TABLE `tbl_fw_info`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `tbl_module_info`
+--
+ALTER TABLE `tbl_module_info`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `tbl_parent`
 --
 ALTER TABLE `tbl_parent`
@@ -288,6 +344,18 @@ ALTER TABLE `tbl_build_info`
 --
 ALTER TABLE `tbl_child`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT for table `tbl_fw_info`
+--
+ALTER TABLE `tbl_fw_info`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `tbl_module_info`
+--
+ALTER TABLE `tbl_module_info`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `tbl_parent`

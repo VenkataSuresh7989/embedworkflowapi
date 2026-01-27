@@ -16,7 +16,7 @@ from fastapi.security import OAuth2PasswordRequestForm
 # -------------------------------------------- FAST API Instance -------------------------------------------------------
 from config.authentication import cipher_suite, User, get_current_active_user
 from config.common import save_uploaded_files
-from contoller import UserController, BuildController, TaskController, ProductController
+from contoller import UserController, BuildController, TaskController, VersionController, ProductController
 
 app = FastAPI()
 
@@ -190,6 +190,38 @@ async def updatetask(id: str, data:str, current_user: Annotated[User, Depends(ge
 @app.post("/deletetask", tags=["TASKS"])
 async def delete_task(id: str, current_user: Annotated[User, Depends(get_current_active_user)]):
     return TaskController.delete_task(id)
+
+# ---------------------------------------------- VERSIONS INFO -------------------------------------------------------------
+
+@app.get("/getversionsinfo", tags=["VERSIONS"])
+async def getversionsinfo(current_user: Annotated[User, Depends(get_current_active_user)]):
+    return VersionController.getallversioninfo()
+
+@app.post("/createmodule", tags=["VERSIONS"])
+async def createmodule(data:str, current_user: Annotated[User, Depends(get_current_active_user)]):
+    return VersionController.createmodule(data)
+
+@app.put("/createmodule", tags=["VERSIONS"])
+async def updatemodule(id:str, data:str, current_user: Annotated[User, Depends(get_current_active_user)]):
+    return VersionController.updatemodule(id, data)
+
+@app.post("/deletemodule", tags=["VERSIONS"])
+async def deletemodule(id:str, current_user: Annotated[User, Depends(get_current_active_user)]):
+    return VersionController.deletemodule(id)
+
+
+@app.post("/createfw", tags=["VERSIONS"])
+async def createfw(data:str, current_user: Annotated[User, Depends(get_current_active_user)]):
+    return VersionController.createfw(data)
+
+@app.put("/createfw", tags=["VERSIONS"])
+async def updatefw(id:str, data:str, current_user: Annotated[User, Depends(get_current_active_user)]):
+    return VersionController.updatefw(id, data)
+
+@app.post("/deletefw", tags=["VERSIONS"])
+async def deletefw(id:str, current_user: Annotated[User, Depends(get_current_active_user)]):
+    return VersionController.deletefw(id)
+
 
 # -------------------------------------------- MAIN METHOD -------------------------------------------------------------
 if __name__ == '__main__':
