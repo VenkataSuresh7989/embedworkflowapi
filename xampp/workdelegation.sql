@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 27, 2026 at 11:55 AM
+-- Generation Time: Jan 29, 2026 at 01:13 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -45,18 +45,6 @@ CREATE TABLE `tbl_build_info` (
   `status` enum('0','1') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Dumping data for table `tbl_build_info`
---
-
-INSERT INTO `tbl_build_info` (`id`, `product_id`, `build_date`, `version`, `build_name`, `build_type`, `build_option`, `fixed_list`, `build_path`, `build_status`, `remark`, `created_by`, `updated_by`, `updated_at`, `status`) VALUES
-(1, '3', '2024-11-18 09:59:27', '01.06.23', 'Opti-Trace Server/Dongle_v 23.', '1', '1', 'Released on  \nThu, Jun 1, 2023, 7:06 PM', 'CADA-Demo-SD-Image-01-06-2023.img', '2', '', 'ravi', 'ravi', '2024-11-18 10:11:33', '0'),
-(2, '3', '2024-11-18 10:01:48', '02.02.24', 'CADA Server Image (02-02-2024)', '1', '1', 'Released on Mon, Feb 5, 5:26 PM', 'CADA Image', '2', '', 'ravi', 'ravi', '2024-11-18 10:12:35', '0'),
-(3, '3', '2024-11-18 10:02:41', '03.06.24', 'New CADA Image with latest CAD', '1', '1', 'Released on \nTue, Jun 4, 8:55 AM\n', 'CADA_PRODUCTION(03-06-2024).img', '2', 'Use this image for testing and for development purposes.', 'ravi', 'ravi', '2024-11-18 10:13:49', '0'),
-(4, '3', '2024-11-18 10:03:46', '10.06.24', 'Latest CADA Image 10-06-2024', '1', '1', 'Released on Mon, Jun 10, 9:20 PM\n', 'CADA_PRODUCTION(10-06-2024).img', '0', 'The latest Dongle package is included in this image file.', 'ravi', 'ravi', '2024-11-23 09:23:22', '0'),
-(5, '3', '2024-11-18 10:15:58', '29.08.24', 'opti-Trace_APK, CADA Image and', '1', '1', 'Note: Please upgrade Dongle_Ver_24.08.02 and then upgrade CADA_BT_Ver_24.08.02.', ': CADA_PRODUCTION(29-08-2024).img', '1', '', 'ravi', 'ravi', '2024-11-18 10:17:22', '0'),
-(6, '1', '2026-01-27 08:47:27', '26.01.01', 'Loraweb', '1', '0', '* New changes updated.', '/desktop', '1', '', 'ravi', '', '', '0');
-
 -- --------------------------------------------------------
 
 --
@@ -84,7 +72,8 @@ INSERT INTO `tbl_child` (`id`, `emp_id`, `job_role`, `qualification`, `skills`, 
 (3, 'EMBED0003', '2', 'B.Tech', 'Core JAVA,React.js,Vue.js,Fast API', '7989586850', '32-28-4/3, Atchyammapeta, Allipuram, Visakhaptnam, 530004.', '245202dc-fd2e-42d3-80b8-5d0020379e8b.jpg'),
 (4, 'EMBED0004', '1', 'M.Tech', 'Python, Vue.js', '9542088420', '32-25-15, Atchyammapeta, Allipuram, Visakhaptnam, 530004', '5f144289-f700-471e-bab5-5f1f96b02d94.jpg'),
 (5, 'EMBED0005', '4', 'B.Tech', 'Auto machine, Manual Testing', '9849171503', 'Main Road, New Gajuwaka, Gajuwaka, Visakhapatnam, Andhra Pradesh 530026', '081d025e-644a-486e-b204-921391b938c2.jpg'),
-(6, 'EMBED0006', '0', 'B.Tech', 'C,C  ,JAVA,Python, Dot Net', '964281822', 'Kommadi Village, Road, Chaitanya Valley, Madhurawada, Visakhapatnam, Andhra Pradesh 530048', 'fc3f5b0c-49ec-4de6-af09-d021c430e848.jpg');
+(6, 'EMBED0006', '0', 'B.Tech', 'C,C  ,JAVA,Python, Dot Net', '964281822', 'Kommadi Village, Road, Chaitanya Valley, Madhurawada, Visakhapatnam, Andhra Pradesh 530048', 'fc3f5b0c-49ec-4de6-af09-d021c430e848.jpg'),
+(7, 'EMBED0007', '4', 'B.Tech', 'Manual and Auto machine', '9908576570', 'Gajuwaka', '76c97087-804c-460f-bc9c-a1f0904e2e2f.jpg');
 
 -- --------------------------------------------------------
 
@@ -104,8 +93,7 @@ CREATE TABLE `tbl_fw_info` (
 --
 
 INSERT INTO `tbl_fw_info` (`id`, `xpr`, `mb_ble`, `flex_max`) VALUES
-(1, '4.66', '5.38', '1.38'),
-(3, '1.66', '1.38', '1.38');
+(1, '4.66', '5.38', '1.38');
 
 -- --------------------------------------------------------
 
@@ -127,8 +115,7 @@ CREATE TABLE `tbl_module_info` (
 --
 
 INSERT INTO `tbl_module_info` (`id`, `opti_server`, `cada`, `amp_android`, `amp_ios`, `msam`) VALUES
-(1, '26.01.03', '26.01.01', '25.12.01', '24.10.01', '26.01.01'),
-(3, '25.01.03', '25.01.01', '25.12.01', '25.10.01', '25.01.01');
+(1, '26.01.03', '26.01.01', '25.12.01', '24.10.01', '26.01.01');
 
 -- --------------------------------------------------------
 
@@ -160,7 +147,8 @@ INSERT INTO `tbl_parent` (`id`, `emp_id`, `user_role`, `username`, `password`, `
 (3, 'EMBED0003', '3', 'suresh', 'gAAAAABlxeoiB_MXuylGAuxddiZ3pPLLagtzu2wmqeQc1PdW8NH2DKyekLpMX4cvEl0mPgMbd7ZCXBHO_7vnErgplgnk50uHXw==', 'suresh@gmail.com', '2024-02-09 14:32:26', '', '', '', '0'),
 (4, 'EMBED0004', '3', 'venkat', 'gAAAAABlxesvdE7fhyBBp0igy89OfZ5D-FYyVScJ7C7H6pzdRrr4zL0GiYGMk49yW1CWT4Wgtm9cAhI7qvYbPj0NAbUB27KovA==', 'venkat@gmail.com', '2024-02-09 14:36:55', '', '', '', '0'),
 (5, 'EMBED0005', '3', 'sai', 'gAAAAABlxfok1dzNYmnnLCT_m9dt6-epVAFQYdZx03wiVqrPmBciV1agSnYiW1rbC1vrjRenZftvir2eObBDTCkFmtDShhC4ZQ==', 'sai@gmail.com', '2024-02-09 15:40:44', '', '', '', '0'),
-(6, 'EMBED0006', '2', 'ravi', 'gAAAAABlxfsO6ChL0HQUfst1FULTgVpccc87kJC7n6Vd1Vk08yUzrv-_hoa7sC_XVzZpZVGvrXHq84GG4J7RrDSUk_QGpKIw2A==', 'ravi@gmail.com', '2024-02-09 15:44:38', '', '', '', '0');
+(6, 'EMBED0006', '2', 'ravi', 'gAAAAABlxfsO6ChL0HQUfst1FULTgVpccc87kJC7n6Vd1Vk08yUzrv-_hoa7sC_XVzZpZVGvrXHq84GG4J7RrDSUk_QGpKIw2A==', 'ravi@gmail.com', '2024-02-09 15:44:38', '', '', '', '0'),
+(7, 'EMBED0007', '3', 'pavan', 'gAAAAABpevuSJzoUZhp1H5wBwpAzx7eLU9yroXAm4n22DnUpJG_Q8oKLq0wlxOWUKFk_Tee3Hn8P80m79d6VngcFDj2FUlVd-w==', 'pavan@gmail.com', '2026-01-29 11:47:54', '', '', '', '0');
 
 -- --------------------------------------------------------
 
@@ -183,10 +171,7 @@ CREATE TABLE `tbl_products_info` (
 --
 
 INSERT INTO `tbl_products_info` (`id`, `name`, `frontend`, `backend`, `database`, `framework`, `status`) VALUES
-(1, 'Amplifier', 'Vue.js', 'FAST API', 'Mysql', 'VS Code, Pycharm', '0'),
-(2, 'OneApp Enterprise', 'Vue.js', 'Python', 'Mysql', 'VS Code, Pycharm', '0'),
-(3, 'CADA Images', 'No Console', 'Script', 'No', 'Any Editor', '0'),
-(4, 'MSAM', 'Vue JS, Ionic Vue', 'Python', 'MySQL', 'VS code', '0');
+(1, 'MSAM', 'Vue JS, Ionic Vue', 'Python FastAPI', 'MySQL', 'VS code, PyCharm', '0');
 
 -- --------------------------------------------------------
 
@@ -210,7 +195,8 @@ INSERT INTO `tbl_prod_idx` (`id`, `emp_id`, `prod_idx`) VALUES
 (3, 'EMBED0003', '1'),
 (4, 'EMBED0004', '1'),
 (5, 'EMBED0005', '1'),
-(6, 'EMBED0006', '1');
+(6, 'EMBED0006', '1'),
+(7, 'EMBED0007', '1');
 
 -- --------------------------------------------------------
 
@@ -230,17 +216,6 @@ CREATE TABLE `tbl_task_info` (
   `task_progress` enum('0','1','2') NOT NULL,
   `status` enum('0','1') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `tbl_task_info`
---
-
-INSERT INTO `tbl_task_info` (`id`, `product_id`, `emp_id`, `task`, `version`, `images`, `assigned_at`, `assigned_by`, `task_progress`, `status`) VALUES
-(1, '3', 'EMBED0004', 'Spin control issue', '10.02.20', '{}', '2024-06-19 13:49:31', 'suresh', '1', '0'),
-(2, '3', 'EMBED0005', 'Spin controller issue', '24.09.99', '{\"img1\": \"d2e2b4a9-3327-4009-9a26-83a7343b196c.jpg\"}', '2024-09-19 09:08:07', 'suresh', '1', '0'),
-(3, '1', 'EMBED0005', 'Log Errors', '26.01.99', '{\"img1\": \"b628a95d-f440-4b87-8e1a-a864998ca083.jpg\", \"img2\": \"77139f12-2260-482c-a72e-0feb8d66454a.jpg\", \"img3\": \"142f8be1-2f20-42aa-be21-76c18e629d5e.jpg\", \"img4\": \"5b713d01-6a3d-437a-9d85-c9fcf7621fdc.jpg\"}', '2026-01-22 12:08:34', 'suresh', '2', '0'),
-(4, '1', 'EMBED0004', 'Spin Control not working', '26.01.98', '{}', '2026-01-27 08:48:57', 'suresh', '1', '0'),
-(5, '1', 'EMBED0006', 'FUOTA getting struck.', '26.01.97', '{}', '2026-01-27 08:49:28', 'suresh', '0', '0');
 
 -- --------------------------------------------------------
 
@@ -337,49 +312,49 @@ ALTER TABLE `tbl_task_info`
 -- AUTO_INCREMENT for table `tbl_build_info`
 --
 ALTER TABLE `tbl_build_info`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `tbl_child`
 --
 ALTER TABLE `tbl_child`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `tbl_fw_info`
 --
 ALTER TABLE `tbl_fw_info`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `tbl_module_info`
 --
 ALTER TABLE `tbl_module_info`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `tbl_parent`
 --
 ALTER TABLE `tbl_parent`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `tbl_products_info`
 --
 ALTER TABLE `tbl_products_info`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `tbl_prod_idx`
 --
 ALTER TABLE `tbl_prod_idx`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `tbl_task_info`
 --
 ALTER TABLE `tbl_task_info`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
