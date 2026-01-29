@@ -78,8 +78,9 @@ JOIN tbl_child t2 ON t1.emp_id = t2.emp_id;
 
 ************************************************************************************************************************
 
-
-
+### Key Points
+* Create products.
+* Assign default product to all users.
 
 
 

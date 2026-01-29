@@ -201,7 +201,7 @@ async def getversionsinfo(current_user: Annotated[User, Depends(get_current_acti
 async def createmodule(data:str, current_user: Annotated[User, Depends(get_current_active_user)]):
     return VersionController.createmodule(data)
 
-@app.put("/createmodule", tags=["VERSIONS"])
+@app.put("/updatemodule", tags=["VERSIONS"])
 async def updatemodule(id:str, data:str, current_user: Annotated[User, Depends(get_current_active_user)]):
     return VersionController.updatemodule(id, data)
 
@@ -214,7 +214,7 @@ async def deletemodule(id:str, current_user: Annotated[User, Depends(get_current
 async def createfw(data:str, current_user: Annotated[User, Depends(get_current_active_user)]):
     return VersionController.createfw(data)
 
-@app.put("/createfw", tags=["VERSIONS"])
+@app.put("/updatefw", tags=["VERSIONS"])
 async def updatefw(id:str, data:str, current_user: Annotated[User, Depends(get_current_active_user)]):
     return VersionController.updatefw(id, data)
 
