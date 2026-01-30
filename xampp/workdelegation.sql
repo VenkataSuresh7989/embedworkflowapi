@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 29, 2026 at 01:13 PM
+-- Generation Time: Jan 30, 2026 at 11:47 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -220,6 +220,45 @@ CREATE TABLE `tbl_task_info` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `tbl_tool_headers`
+--
+
+CREATE TABLE `tbl_tool_headers` (
+  `id` int(11) NOT NULL,
+  `name` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `tbl_tool_headers`
+--
+
+INSERT INTO `tbl_tool_headers` (`id`, `name`) VALUES
+(3, 'MSAM Keys');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_tool_header_items`
+--
+
+CREATE TABLE `tbl_tool_header_items` (
+  `id` int(11) NOT NULL,
+  `header_id` int(11) NOT NULL,
+  `label` varchar(100) NOT NULL,
+  `value` text NOT NULL,
+  `is_copy` tinyint(4) DEFAULT 0
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `tbl_tool_header_items`
+--
+
+INSERT INTO `tbl_tool_header_items` (`id`, `header_id`, `label`, `value`, `is_copy`) VALUES
+(3, 3, 'app_key', 'Application Key (For FUOTA)', 1);
+
+-- --------------------------------------------------------
+
+--
 -- Stand-in structure for view `tbl_user_info`
 -- (See below for the actual view)
 --
@@ -305,6 +344,20 @@ ALTER TABLE `tbl_task_info`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `tbl_tool_headers`
+--
+ALTER TABLE `tbl_tool_headers`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `name` (`name`);
+
+--
+-- Indexes for table `tbl_tool_header_items`
+--
+ALTER TABLE `tbl_tool_header_items`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `header_id` (`header_id`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -355,6 +408,28 @@ ALTER TABLE `tbl_prod_idx`
 --
 ALTER TABLE `tbl_task_info`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `tbl_tool_headers`
+--
+ALTER TABLE `tbl_tool_headers`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `tbl_tool_header_items`
+--
+ALTER TABLE `tbl_tool_header_items`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `tbl_tool_header_items`
+--
+ALTER TABLE `tbl_tool_header_items`
+  ADD CONSTRAINT `tbl_tool_header_items_ibfk_1` FOREIGN KEY (`header_id`) REFERENCES `tbl_tool_headers` (`id`) ON DELETE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
