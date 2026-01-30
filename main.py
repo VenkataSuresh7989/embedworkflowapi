@@ -16,7 +16,7 @@ from fastapi.security import OAuth2PasswordRequestForm
 # -------------------------------------------- FAST API Instance -------------------------------------------------------
 from config.authentication import cipher_suite, User, get_current_active_user
 from config.common import save_uploaded_files
-from contoller import UserController, BuildController, TaskController, VersionController, ProductController
+from contoller import UserController, BuildController, TaskController, VersionController, ProductController, MsamtoolController
 
 app = FastAPI()
 
@@ -191,7 +191,7 @@ async def updatetask(id: str, data:str, current_user: Annotated[User, Depends(ge
 async def delete_task(id: str, current_user: Annotated[User, Depends(get_current_active_user)]):
     return TaskController.delete_task(id)
 
-# ---------------------------------------------- VERSIONS INFO -------------------------------------------------------------
+# ---------------------------------------------- VERSIONS INFO ---------------------------------------------------------
 
 @app.get("/getversionsinfo", tags=["VERSIONS"])
 async def getversionsinfo(current_user: Annotated[User, Depends(get_current_active_user)]):
@@ -221,6 +221,36 @@ async def updatefw(id:str, data:str, current_user: Annotated[User, Depends(get_c
 @app.post("/deletefw", tags=["VERSIONS"])
 async def deletefw(id:str, current_user: Annotated[User, Depends(get_current_active_user)]):
     return VersionController.deletefw(id)
+
+# ---------------------------------------------- MSAM Tool ---------------------------------------------------------
+@app.post("/createtoolheaders", tags=["MSAM"])
+async def createtoolheaders(headername:str, current_user: Annotated[User, Depends(get_current_active_user)]):
+    return MsamtoolController.createtoolheaders(headername)
+
+@app.put("/updatetoolheaders", tags=["MSAM"])
+async def updatetoolheaders(header_id: str, headername:str, current_user: Annotated[User, Depends(get_current_active_user)]):
+    return MsamtoolController.updatetoolheaders(header_id, headername)
+
+@app.delete("/deletetoolheader", tags=["MSAM"])
+async def deletetoolheader(header_id:str, current_user: Annotated[User, Depends(get_current_active_user)]):
+    return MsamtoolController.deletetoolheader(header_id)
+
+@app.post("/createtoolheaderitems", tags=["MSAM"])
+async def createtoolheaderItems(data:str, current_user: Annotated[User, Depends(get_current_active_user)]):
+    return MsamtoolController.createtoolheaderItems(data)
+
+@app.put("/updatetoolheaderitems", tags=["MSAM"])
+async def updatetoolheaderItems(header_id: str, data:str, current_user: Annotated[User, Depends(get_current_active_user)]):
+    return MsamtoolController.updatetoolheaderItems(header_id, data)
+
+@app.delete("/deletetoolheaderitems", tags=["MSAM"])
+async def deletetoolheaderItems(header_id:str, current_user: Annotated[User, Depends(get_current_active_user)]):
+    return MsamtoolController.deletetoolheaderItems(header_id)
+
+
+@app.get("/gettoolheader", tags=["MSAM"])
+async def get_tool_headers_with_items(current_user: Annotated[User, Depends(get_current_active_user)]):
+    return MsamtoolController.get_tool_headers_with_items()
 
 
 # -------------------------------------------- MAIN METHOD -------------------------------------------------------------
