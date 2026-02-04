@@ -6,8 +6,8 @@ def createtoolheaders(headername):
 def updatetoolheaders(header_id, headername):
     return MsamtoolView.updatetoolheaders(header_id, headername)
 
-def deletetoolheader(header_id):
-    return MsamtoolView.deletetoolheader(header_id)
+def deletetoolheader(name):
+    return MsamtoolView.deletetoolheader(name)
 
 
 def createtoolheaderItems(data):
@@ -16,8 +16,8 @@ def createtoolheaderItems(data):
 def updatetoolheaderItems(header_id, data):
     return MsamtoolView.updatetoolheaderItems(header_id, data)
 
-def deletetoolheaderItems(header_id):
-    return MsamtoolView.deletetoolheaderItems(header_id)
+def deletetoolheaderItems(id):
+    return MsamtoolView.deletetoolheaderItems(id)
 
 
 def get_tool_headers_with_items():

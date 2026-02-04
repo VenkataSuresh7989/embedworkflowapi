@@ -37,13 +37,13 @@ def updatetoolheaders(header_id, headername):
     except Exception as e:
         return {"status": 500, "data": str(e)}
 
-def deletetoolheader(header_id):
+def deletetoolheader(name):
     try:
         conn = connect_db()
         cursor = conn.cursor()
 
-        sql = "DELETE FROM `tbl_tool_headers` WHERE `id` = %s"
-        args = (header_id,)
+        sql = "DELETE FROM `tbl_tool_headers` WHERE `name` = %s"
+        args = (name,)
 
         resp = cursor.execute(sql, args)
         conn.commit()
@@ -108,13 +108,13 @@ def updatetoolheaderItems(header_id, data):
     except Exception as e:
         return {"status": 500, "data": str(e)}
 
-def deletetoolheaderItems(header_id):
+def deletetoolheaderItems(id):
     try:
         conn = connect_db()
         cursor = conn.cursor()
 
         sql = "DELETE FROM `tbl_tool_header_items` WHERE `id` = %s"
-        args = (header_id,)
+        args = (id)
 
         resp = cursor.execute(sql, args)
         conn.commit()

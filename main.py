@@ -232,8 +232,8 @@ async def updatetoolheaders(header_id: str, headername:str, current_user: Annota
     return MsamtoolController.updatetoolheaders(header_id, headername)
 
 @app.delete("/deletetoolheader", tags=["MSAM"])
-async def deletetoolheader(header_id:str, current_user: Annotated[User, Depends(get_current_active_user)]):
-    return MsamtoolController.deletetoolheader(header_id)
+async def deletetoolheader(name:str, current_user: Annotated[User, Depends(get_current_active_user)]):
+    return MsamtoolController.deletetoolheader(name)
 
 @app.post("/createtoolheaderitems", tags=["MSAM"])
 async def createtoolheaderItems(data:str, current_user: Annotated[User, Depends(get_current_active_user)]):
@@ -244,8 +244,8 @@ async def updatetoolheaderItems(header_id: str, data:str, current_user: Annotate
     return MsamtoolController.updatetoolheaderItems(header_id, data)
 
 @app.delete("/deletetoolheaderitems", tags=["MSAM"])
-async def deletetoolheaderItems(header_id:str, current_user: Annotated[User, Depends(get_current_active_user)]):
-    return MsamtoolController.deletetoolheaderItems(header_id)
+async def deletetoolheaderItems(id:str, current_user: Annotated[User, Depends(get_current_active_user)]):
+    return MsamtoolController.deletetoolheaderItems(id)
 
 
 @app.get("/gettoolheader", tags=["MSAM"])
